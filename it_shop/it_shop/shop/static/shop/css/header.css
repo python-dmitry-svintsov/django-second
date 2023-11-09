@@ -1,0 +1,112 @@
+header {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: fixed;
+  top: -50px;
+  left: 0;
+  box-shadow: 0px 5px 2px rgba(0, 0, 0, 0.5);
+  width: 100vw;
+  /* background-color: var(--color1); */
+  background-image: var(--material);
+  justify-content: space-between;
+  transition-duration: 1.5s;
+}
+
+header:hover {
+  transform: translate(0, 50px);
+  -webkit-transform: translate(0, 50px); /** Chrome & Safari **/
+  -o-transform: translate(0, 50px); /** Opera **/
+  -moz-transform: translate(0, 50px); /** Firefox **/
+}
+
+header .icons {
+  width: var(--icon_size);
+  height: var(--icon_size);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3),
+    2px -2px 5px rgba(0, 0, 0, 0.3), -2px 2px 5px rgba(0, 0, 0, 0.3);
+  transition-duration: 0.5s;
+  border-radius: 50%;
+}
+
+header .icon-container {
+  width: var(--icon_size_a);
+  height: var(--icon_size_a);
+  padding: auto;
+}
+
+header .icon-container:hover .icons {
+  width: var(--icon_size_b);
+  height: var(--icon_size_b);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5), -2px -2px 5px rgba(0, 0, 0, 0.5),
+    2px -2px 5px rgba(0, 0, 0, 0.5), -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+header .left-part {
+  margin-left: 10px;
+}
+
+header .right-part {
+  margin-right: 40px;
+}
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+header li {
+  float: left;
+  padding: auto;
+}
+
+header li a,
+.dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 24px;
+  height: var(--icon_size_a);
+}
+
+header li a:hover,
+.dropdown:hover .dropbtn {
+  transition-duration: 0.5s;
+  background-color: var(--color1_a);
+}
+
+header li.dropdown {
+  display: inline-block;
+}
+
+header .dropdown-content {
+  display: none;
+  position: absolute;
+  /* background-color: var(--color1_a); */
+  background-image: var(--material);
+  min-width: 160px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+header .dropdown-content a {
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+header .dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: var(--color1_a);
+}
+
+header .dropdown:hover .dropdown-content {
+  display: block;
+}

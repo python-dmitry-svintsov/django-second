@@ -1,0 +1,85 @@
+{% extends 'shop/index.html' %} {% block title %} home {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('shop/css/home.css')}}" />
+{% endblock %} {% block main %}
+<div class="main-items">
+  <section class="home-main">
+    <h2 class="header-1">Каталоги:</h2>
+    <p class="text-roboto">
+      Подобрал специально для вас подборку товаров что может пригодится для
+      програмирования, от популярных книг до компьютеров и ноутбуков. Кстати все
+      эти карточки что вы тут найдете я спарсил. И конечно все эти товары, можно
+      добавить в карзину в том количестве в котором они есть на складе. При
+      оформлении заказа, все данные будут обработаны базы данных будут
+      обновлены.
+    </p>
+  </section>
+  <section class="home-main">
+    <div class="categories-storage">
+      {% for cat in categories %}
+      <a href="{{ url('shop:books') }}" class="cat-card">
+        <div class="img-container">
+          <img src="/media/{{ cat.icon }}" alt="" />
+        </div>
+        <div class="text-container">
+          <span>{{ cat.name }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+</div>
+<div class="main-items">
+  <section class="home-main">
+    <img class="mysql-logo" src="{{ static('shop/img/mysql.png')}}" alt="" />
+  </section>
+  <section class="home-main">
+    <h2 class="header-2">Базы данных:</h2>
+    <p class="text-roboto">
+      В этом проэкте я использовал базы данных mysql. Я на них наткнулся
+      случайно, так как не мог подключить базу данных от майкрософт, и я подумал
+      что mysql -> это как раз таки она. Но каково было моё удивление когда я
+      прочел oracl. Дело в что сервер mysql поставляется только с оболочкой. Это
+      что- то на подобие командной строки, и вся робота видется от туда без
+      графического меню. Поэтому я предпочитаю работать с этой базой данных
+      через пайтон, тут в проекте для этого есть специальный файл db_manager.py.
+      Mysql в свою очень открытая база данных и каждый может ее под себя
+      модифицировать, а oracl в командной строке вроде означает что она
+      использует какие-то технологии самой популярной базы данных в мире. Кстати
+      написано что mysql вторая по популярности база данных в мире.
+    </p>
+  </section>
+</div>
+<div class="main-items">
+  <section class="home-main">
+    <h2 class="header-3">Развлечения:</h2>
+    <p class="text-roboto">
+      Я решил не особо заморачиватся с фронтом. Я думал вначале делать всякие
+      там баннеры и рекламки. Но потом в пал в ступор. Ведь надо еще и работать.
+      Поэтому я решил не терять время зря а написать за вечер основную страницу
+      и занятся более интересным занятием - создавть для вас третию версию всем
+      уже полюбившихся танчиков. Посмотрим что из этого получится.
+    </p>
+  </section>
+  <section class="home-main">
+    <div class="categories-storage">
+      <a href="{{ url('tank:main') }}" class="cat-card">
+        <div class="img-container">
+          <img src="{{ static('shop/img/tank.jpg')}}" alt="" />
+        </div>
+        <div class="text-container">
+          <span>Танчики</span>
+        </div>
+      </a>
+      <a href="{{ url('lapi:lapi-home') }}" class="cat-card">
+        <div class="img-container">
+          <img src="{{ static('shop/img/lapi.jpg')}}" alt="" />
+        </div>
+        <div class="text-container">
+          <span>Labirintial</span>
+        </div>
+      </a>
+    </div>
+  </section>
+</div>
+{% endblock %}

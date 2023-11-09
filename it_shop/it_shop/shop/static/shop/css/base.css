@@ -1,0 +1,31 @@
+:root {
+  /**/
+  --color_black: #320d0f;
+  --gray_color: #3f2253;
+  --light_gray: #786497;
+  --blue: #39045b;
+  --orange: #ff7518;
+  --color1: #563154;
+  --color1_a: #542553;
+  --color2: #7a3d5e;
+  --color3: #af546e;
+  --color4: #f57c80;
+  --color5: #ffb892;
+  --color6: #ffc3ac;
+  --color7: #f1dc86;
+  --color8: #ffffdc;
+  --color9: #f6efed;
+  /**/
+  --icon_size: 36px;
+  --icon_size_a: 38px;
+  --icon_size_b: 40px;
+  --header_size: -12px;
+  --header_size_a: 6px;
+  /**/
+  --footer-size: 12px;
+  --footer-size_a: -38px;
+  /*textures*/
+  --material: url("../img/main/mat.png");
+  --card: url("../img/main/card.png");
+  --card_hover: url("../img/main/card-hover.png");
+}

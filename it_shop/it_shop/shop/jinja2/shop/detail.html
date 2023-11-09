@@ -1,0 +1,94 @@
+{% extends 'shop/index.html' %} {% block title %} detail {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('shop/css/book-detail.css')}}" />
+{% endblock %} {% block main %}
+<div class="cart-main-info">
+  {% with total_items=cart|length %} {% if cart|length > 0 %}
+  <span>Ваша корзина: {{ total_items }} единицы</span>
+  <a href="{{ url('cart:cart_detail') }}"> товара, </a>
+  <span>на общую сумму: {{ cart.get_total_price() }} уе.</span>
+  {% else %} <span>Ваша корзина пуста.</span> {% endif %} {% endwith %}
+</div>
+<div class="top-section">
+  <div class="image-section">
+    <img src="/media/{{ book.icon }}" alt="book" />
+    <span>{{ book.title }}</span>
+  </div>
+  <div class="book-info">
+    <h2>Описание :</h2>
+    <p>{{ book.description }}</p>
+  </div>
+  <div class="book-info">
+    <h2>Характеристики :</h2>
+    <table class="info-table">
+      <tr>
+        <td class="tr-header">Издательство:</td>
+        <td class="tr-info">{{ book.pubhouse }}</td>
+      </tr>
+      <tr>
+        <td class="tr-header">Год:</td>
+        <td class="tr-info">{{ book.year }}</td>
+      </tr>
+      <tr>
+        <td class="tr-header">isbn:</td>
+        <td class="tr-info">{{ book.isbn }}</td>
+      </tr>
+      <tr>
+        <td class="tr-header">страниц:</td>
+        <td class="tr-info">{{ book.pages }}</td>
+      </tr>
+      <tr>
+        <td class="tr-header">размеры:</td>
+        <td class="tr-info">{{ book.dimension }}</td>
+      </tr>
+      <tr>
+        <td class="tr-header">вес:</td>
+        <td class="tr-info">{{ book.weight }} г.</td>
+      </tr>
+      <tr>
+        <td class="tr-header">цена:</td>
+        <td class="tr-info">{{ book.price }}</td>
+      </tr>
+      {% if book.authors %}
+      <tr>
+        <td class="tr-header">Автор(ы):</td>
+        <td class="tr-info">{{ book.authors }}</td>
+      </tr>
+      {% endif %} {% if book.artists %}
+      <tr>
+        <td class="tr-header">Художник(и):</td>
+        <td class="tr-info">{{ book.artists }}</td>
+      </tr>
+      {% endif %}
+    </table>
+    <form
+      class="order"
+      action="{{ url('cart:cart_add', book.id) }}"
+      method="post"
+    >
+      <input
+        type="hidden"
+        name="csrfmiddlewaretoken"
+        value="{{ csrf_token }}"
+      />
+      <input
+        type="number"
+        name="quantity"
+        min="1"
+        max="{{ book.quantity }}"
+        value="1"
+        hidden
+        id="quantity-input"
+      />
+      <button class="btn-by minus" id="minus" type="button"></button>
+      <div class="span-container">
+        <span class="span-quantity" id="span-input"></span>
+        <span class="span-quantity">шт.</span>
+      </div>
+      <button class="btn-by plus" id="plus" type="button"></button>
+      <button class="button-cart" type="submit"></button>
+    </form>
+  </div>
+</div>
+<script src="{{ static('shop/js/product-detail.js') }}"></script>
+{% endblock %}

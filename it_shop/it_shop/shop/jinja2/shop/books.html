@@ -1,0 +1,67 @@
+{% extends 'shop/index.html' %} {% block title %} books {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('shop/css/books.css')}}" />
+{% endblock %} {% block main %}
+<div class="cart-main-info">
+  {% with total_items=cart|length %} {% if cart|length > 0 %}
+  <span>Ваша корзина: {{ total_items }} единицы</span>
+  <a href="{{ url('cart:cart_detail') }}"> товара, </a>
+  <span>на общую сумму: {{ cart.get_total_price() }} уе.</span>
+  {% else %} <span>Ваша корзина пуста.</span> {% endif %} {% endwith %}
+</div>
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous() %} &nbsp
+    <a href="?page=1">&laquo; first</a>
+    &nbsp
+    <a href="?page={{ page_obj.previous_page_number() }}">previous</a>
+    &nbsp {% endif %}
+
+    <span class="current">
+      Page &nbsp {{ page_obj.number }} &nbsp of &nbsp {{
+      page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next() %} &nbsp
+    <a href="?page={{ page_obj.next_page_number() }}">next</a>
+    &nbsp
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    &nbsp {% endif %}
+  </span>
+</div>
+
+<div class="books-root">
+  {% for book in books %}
+  <a href="{{ book.get_absolute_url() }}" class="cat-card">
+    <div class="img-container">
+      <img src="/media/{{ book.icon }}" alt="" />
+    </div>
+    <div class="text-container">
+      <span>{{ book.title }}</span>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  <span class="step-links">
+    {% if page_obj.has_previous() %} &nbsp
+    <a href="?page=1">&laquo; first</a>
+    &nbsp
+    <a href="?page={{ page_obj.previous_page_number() }}">previous</a>
+    &nbsp {% endif %}
+
+    <span class="current">
+      Page &nbsp {{ page_obj.number }} &nbsp of &nbsp {{
+      page_obj.paginator.num_pages }}.
+    </span>
+
+    {% if page_obj.has_next() %} &nbsp
+    <a href="?page={{ page_obj.next_page_number() }}">next</a>
+    &nbsp
+    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+    &nbsp {% endif %}
+  </span>
+</div>
+
+{% endblock %}

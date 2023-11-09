@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ static('shop/css/style.css')}}" />
+    {% block style %} {% endblock %}
+  </head>
+  <body>
+    <header>
+      <ul class="left-part">
+        <li>
+          <a class="icon-container" href="{{ url('shop:home') }}"
+            ><img class="icons" src="{{ static('shop/img/home.png')}}" alt=""
+          /></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropbtn">test</a>
+          <div class="dropdown-content">
+            <a href="#">test</a>
+            <a href="#">test</a>
+            <a href="#">tes</a>
+            <a href="#">test</a>
+            <a href="#">test</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="right-part">
+				{% set user_group = user.groups.all() %}
+				{% for gr in user_group %}
+					{% if gr.name == 'moderators' %}
+						<li class="dropdown">
+							<a href="#" class="dropbtn">moderator-pannel</a>
+							<div class="dropdown-content">
+								<a href="{{ url('orders:order-list') }}">order_list</a>
+							</div>
+						</li>
+					{% endif %}
+				{% endfor %}
+        {% set user = request.user %} {% if user.is_authenticated %}
+        <li class="dropdown">
+          <a class="icon-container dropbtn" href="#">
+            {% if user.photo %}
+            <img class="icons" src="/media/{{ user.photo }}" alt="user_icon" />
+            {% else %} {% if user.sex.pk == 2 %}
+            <img class="icons" src="{{ static('shop/img/woman.png')}}" alt="" />
+            {% else %}
+            <img class="icons" src="{{ static('shop/img/man.png')}}" alt="" />
+            {% endif %} {% endif %}
+          </a>
+          <div class="dropdown-content">
+            <a href="{{ user.get_absolute_url() }}">профиль</a>
+            <a href="{{ url('cart:cart_detail') }}">корзина</a>
+            <a href="{{ url('my_auth:logout') }}">Выйти</a>
+          </div>
+        </li>
+        {% else %}
+        <li>
+          <a class="icon-container" href="{{ url('my_auth:login') }}"
+            ><img
+              class="icons"
+              src="{{ static('shop/img/anonymous.png')}}"
+              alt=""
+          /></a>
+        </li>
+        {% endif %}
+      </ul>
+    </header>
+    <section class="main">{% block main %}{% endblock %}</section>
+    <div class="messager-box">
+      <div class="messeger-container">
+        {% if messages %}
+        <span class="messages message-warning">!Важные сообщения!:</span>
+        <ul>
+          {% for message in messages %}
+          <li class="messages">{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% else %}
+        <span class="messages">Svintsov Dmytro  &#xa9</span>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

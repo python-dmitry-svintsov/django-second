@@ -1,0 +1,34 @@
+.header-1 {
+  font-size: 38px;
+  font-family: "square";
+  color: var(--color_black);
+}
+
+.header-2 {
+  font-size: 38px;
+  font-family: "grafyty";
+  color: var(--color8);
+}
+
+.text-hand {
+  font-size: 28px;
+  font-family: "hand";
+  color: var(--color8);
+  text-align: justify;
+  text-indent: 40px;
+}
+
+.header-3 {
+  font-size: 28px;
+  font-family: "halloween";
+  color: var(--color9);
+  text-align: justify;
+}
+
+.text-roboto {
+  font-size: 20px;
+  font-family: "roboto";
+  color: var(--color9);
+  text-align: justify;
+  text-indent: 40px;
+}

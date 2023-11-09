@@ -1,0 +1,115 @@
+.block-btn {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.btn-accept {
+  min-width: 100px;
+  max-width: 150px;
+  height: 30px;
+  display: block;
+  border: 1px solid var(--color3);
+  background-color: var(--color_black);
+  color: var(--color9);
+  font-weight: bold;
+  border-radius: 5px;
+  text-decoration: none;
+  margin: auto;
+}
+
+.btn-accept:hover {
+  background-color: var(--gray_color);
+  border-color: var(--color4);
+}
+
+.btn-accept:active {
+  background-color: var(--light_gray);
+  border-color: var(--color8);
+}
+
+.btn-red {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-red span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-red span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-red:hover span {
+  padding-right: 25px;
+}
+
+.btn-red:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.btn-red:disabled {
+  background-color: #cf8f7b;
+}
+
+.btn-blue {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--blue);
+  border: none;
+  color: var(--color9);
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-blue span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.btn-blue span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.btn-blue:hover span {
+  padding-right: 25px;
+}
+
+.btn-blue:hover span:after {
+  opacity: 1;
+  right: 0;
+}

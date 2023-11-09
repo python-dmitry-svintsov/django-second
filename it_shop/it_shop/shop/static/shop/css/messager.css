@@ -1,0 +1,44 @@
+.messeger-container {
+  width: 100%;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+}
+
+.messages {
+  color: var(--color9);
+  font-family: "roboto";
+  font-size: 22px;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.messager-box {
+  padding: 5px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: fixed;
+  left: 0;
+  bottom: -25px;
+  width: 50vw;
+  max-height: 70px;
+  background-color: var(--color1);
+  justify-content: space-between;
+  transition-duration: 0.7s;
+  border-top-right-radius: 22px;
+}
+
+.messager-box:hover {
+  transform: translate(0, -25px);
+  -webkit-transform: translate(0, -25px); /** Chrome & Safari **/
+  -o-transform: translate(0, -25px); /** Opera **/
+  -moz-transform: translate(0, -25px); /** Firefox **/
+}
+
+.message-warning {
+  color: var(--orange);
+}

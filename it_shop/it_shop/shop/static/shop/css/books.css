@@ -1,0 +1,96 @@
+.books-root {
+  padding: 10px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cat-card {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 450px;
+  background-image: var(--card);
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3),
+    2px -2px 5px rgba(0, 0, 0, 0.3), -2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.cat-card:hover {
+  background-image: var(--card_hover);
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.5), -2px -2px 15px rgba(0, 0, 0, 0.5),
+    2px -2px 15px rgba(0, 0, 0, 0.5), -2px 2px 15px rgba(0, 0, 0, 0.5);
+}
+
+.img-container {
+  text-align: center;
+  vertical-align: middle;
+  padding: auto;
+  width: 270px;
+  height: 340px;
+}
+
+.img-container img {
+  max-width: 240px;
+  max-height: 320px;
+  transition-duration: 0.5s;
+}
+
+.img-container img:hover {
+  max-width: 260px;
+  max-height: 340px;
+}
+
+.cat-card span {
+  text-decoration: none;
+  font-size: 16px;
+  font-family: "roboto";
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3),
+    2px -2px 5px rgba(0, 0, 0, 0.3), -2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: var(--color6);
+  transition-duration: 0.5s;
+}
+
+.cat-card span:hover {
+  color: var(--color7);
+  text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5),
+    -6px -6px 15px rgba(0, 0, 0, 0.5), 6px -6px 15px rgba(0, 0, 0, 0.5),
+    -6px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.text-container {
+  text-align: center;
+  vertical-align: middle;
+  padding: auto;
+  width: 280px;
+  height: 70px;
+}
+
+.pagination {
+  margin: 20px;
+}
+
+.current {
+  font-size: 28px;
+  font-family: "halloween";
+}
+
+.step-links a {
+  font-family: "halloween";
+  font-size: 38px;
+  color: var(--orange);
+  transition-duration: 0.5s;
+}
+
+.step-links a:hover {
+  text-shadow: 6px 6px 15px rgba(0, 0, 0, 0.5),
+    -6px -6px 15px rgba(0, 0, 0, 0.5), 6px -6px 15px rgba(0, 0, 0, 0.5),
+    -6px 6px 15px rgba(0, 0, 0, 0.5);
+}

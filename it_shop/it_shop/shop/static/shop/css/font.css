@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "font1";
+  src: url("../fonts/font1/font1.woff") format("woff"),
+    url("../fonts/font1/font1.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font2";
+  src: url("../fonts/font2/font2.woff") format("woff"),
+    url("../fonts/font2/font2.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font3";
+  src: url("../fonts/font3/font3.woff2") format("woff2"),
+    url("../fonts/font3/font3.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "font4";
+  src: url("../fonts/font4/font4.woff2") format("woff2"),
+    url("../fonts/font4/font4.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("../fonts/Roboto/Roboto-Light.woff2") format("woff2"),
+    url("../fonts/Roboto/Roboto-Light.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "square";
+  src: url("../fonts/font_s/font.woff2") format("woff2"),
+    url("../fonts/font_s/font.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "grafyty";
+  src: url("../fonts/grafyty/font.woff2") format("woff2"),
+    url("../fonts/grafyty/font.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "hand";
+  src: url("../fonts/hand/font.woff2") format("woff2"),
+    url("../fonts/hand/font.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "halloween";
+  src: url("../fonts/halloween/font.woff2") format("woff2"),
+    url("../fonts/halloween/font.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+.font-1 {
+  font-family: "font1";
+}
+
+.font-2 {
+  font-family: "font2", cursive;
+}
+
+.font-3 {
+  font-family: "font3";
+}
+
+.font-4 {
+  font-family: "font4", cursive;
+}
+
+.font-5 {
+  font-family: "roboto";
+}
