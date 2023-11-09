@@ -1,0 +1,21 @@
+{% extends 'shop/index.html' %} {% block title %} Tank Main {% endblock %} {%
+block style %}
+<link rel="stylesheet" href="{{ static('lapi/css/main.css') }}" />
+{% endblock %} {% block main %}
+<div class="game-root">
+  <h1>Menu-list:</h1>
+  {% for elem in data %}
+  <form method="POST">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+    <select name="level" style="display: none" type="hidden">
+      <option name="data" type="hidden" value="{{ elem.slug }}">
+        {{ elem.slug }}
+      </option>
+    </select>
+    <button class="button-18" type="submit" role="button">
+      {{ elem.title }}
+    </button>
+  </form>
+  {% endfor %}
+</div>
+{% endblock %}

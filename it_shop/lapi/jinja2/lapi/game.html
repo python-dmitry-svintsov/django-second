@@ -1,0 +1,37 @@
+{% extends 'shop/index.html' %} {% block title %} game {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('lapi/css/game.css') }}" />
+<script src="{{ static('lapi/js/main.js') }}" type="module"></script>
+{% endblock %} {% block main %}
+<input class="slug" value="{{ slug }}"></input>
+<div class="game">
+  <div class="border-info">
+    <div class="level-info">
+      <div>
+        <span>level: &nbsp</span>
+        <span id="level-name" class="information"></span>
+      </div>
+      <div>
+        <span>enemy-limit: &nbsp</span>
+        <span id="enemy-limit" class="information"></span>
+      </div>
+    </div>
+    <form action="{{ url('lapi:lapi-home') }}" method="GET">
+      <button class="button-85" role="button" type="submit">Menu</button>
+    </form>
+    <div class="item-storage">
+			<div class = "art-storage">
+				<img id="key" class="art-image" src="{{ static('lapi/img/key.png') }}" alt="">
+			</div>
+			<div class = "art-storage">
+				<img id="crossbow" class="art-image" src="{{ static('lapi/img/crossbow.png') }}" alt="">
+			</div>
+    </div>
+  </div>
+  <div>
+    <img src="{{ static('tank/img/game_over.png') }}" class="game-over" />
+    <img src="{{ static('tank/img/win.png')}}" class="game-win" />
+    <canvas class="lapi-canvas"></canvas>
+  </div>
+</div>
+{% endblock %}

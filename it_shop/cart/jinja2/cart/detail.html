@@ -1,0 +1,79 @@
+{% extends 'shop/index.html' %} {% block title %} shopping cart {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ static('cart/css/detail.css')}}" />
+{% endblock %} {% block main %}
+<div class="cart-root">
+  <h1>Ваша корзина:</h1>
+  <table class="cart">
+    <thead>
+      <tr>
+        <th>Изображение</th>
+        <th>Наименование</th>
+        <th>Количество</th>
+        <th>Удалить</th>
+        <th>Цена единицы</th>
+        <th>Общая цена</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %} {% with product=item.product %}
+      <tr>
+        <td>
+          <a href="{{ product.get_absolute_url() }}">
+            <img class="product-icon" src="/media/{{ product.icon }}" alt="" />
+          </a>
+        </td>
+        <td class="product-title">{{ product.title }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>
+          <a class="button-29" href="{{ url('cart:cart_remove', product.id) }}"
+            >Remove</a
+          >
+        </td>
+        <td class="num">${{ item.price }}</td>
+        <td class="num">${{ item.total_price }}</td>
+      </tr>
+      {% endwith %} {% endfor %} {% if cart.coupon %}
+      <tr class="subtotal">
+        <td>Subtotal</td>
+        <td colspan="4"></td>
+        <td class="num">${{ cart.get_total_price() }}</td>
+      </tr>
+      <tr>
+        <td>
+          "{{ cart.coupon.code }}" coupon ({{ cart.coupon.discount }}% off)
+        </td>
+        <td colspan="4"></td>
+        <td class="num neg">- ${{ cart.get_discount() }}</td>
+      </tr>
+      {% endif %}
+      <tr class="total">
+        <td>Total</td>
+        <td colspan="4"></td>
+        <td class="num">${{ cart.get_total_price_after_discount() }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <form class="coupon-form" action="{{ url('coupons:apply') }}" method="post">
+    {{ form.code }}
+    <button class="button-yellow">Применить купон</button>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+  </form>
+
+  <p>
+    <a
+      class="button-29 btn-shoping"
+      href="{{ url('shop:home') }}"
+      class="button light"
+      >Продолжить покупки</a
+    >
+    <a
+      class="button-29 btn-acces"
+      href="{{ url('orders:order_create') }}"
+      class="button"
+      >Оформить заказ</a
+    >
+  </p>
+</div>
+{% endblock %}
