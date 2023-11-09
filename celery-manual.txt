@@ -1,0 +1,21 @@
+RabbitMg:
+Start the Broker as an Application --> rabbitmq-server.bat -detached
+Important: after setting environment variables, it is necessary to reinstall the service. --> rabbitmq-service.bat install
+Start the Broker as a Service --> rabbitmq-service.bat start
+rabbitmq-service.bat stop
+rabbitmq.bat status
+
+Flower
+http://localhost:5555/workers
+celery -A it_shop flower
+celery flower -A it_shop --address=127.0.0.1 --port=5555 --hostname 127.0.0.1
+
+Celery:
+celery -A it_shop worker -l info -P eventlet
+
+
+diagnostics:
+rabbitmq-diagnostics observer --> rum monitoring
+rabbitmq-diagnostics help -l --list-commands
+rabbitmq-diagnostics status
+rabbitmq-diagnostics list_queues

@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "shop-project"
+version = "0.1.0"
+description = ""
+authors = ["nevill001 <126955893+nevill001@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11.0,<3.13.0"
+django = "^4.2.5"
+jinja2 = "^3.1.2"
+mysqlclient = "^2.2.0"
+pymysql = "^1.1.0"
+pillow = "^10.0.1"
+django-autoslug = "^1.9.9"
+django-phonenumber-field = {extras = ["phonenumbers"], version = "^7.1.0"}
+django-cleanup = "^8.0.0"
+celery = "^5.3.4"
+eventlet = "^0.33.3"
+flower = "^2.0.1"
+pygame = "^2.5.2"
+numpy = "^1.26.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
