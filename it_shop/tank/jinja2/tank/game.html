@@ -1,0 +1,37 @@
+{% extends 'shop/index.html' %} {% block title %} game {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('tank/css/game.css') }}" />
+<script src="{{ static('tank/js/main.js') }}" type="module"></script>
+{% endblock %} {% block main %}
+<div class="game">
+  <div class="border-info">
+    <div class="level-info">
+      <div>
+        <sppan>level: &nbsp</sppan>
+        <span id="level-name" class="information"></span>
+      </div>
+      <div>
+        <span>enemy-limit: &nbsp</span>
+        <span id="enemy-limit" class="information"></span>
+      </div>
+    </div>
+    <form action="{{ url('tank:main') }}" method="GET">
+      <button class="button-85" role="button" type="submit">Menu</button>
+    </form>
+    <div>
+      <span class="span-info">SCORE: &nbsp</span>
+      <span class="span-data" id="score">0</span>
+    </div>
+    <div>
+      <span class="span-info">Health: &nbsp</span>
+      <span class="span-data" id="health">3</span>
+      <span class="span-data">&nbsp hp</span>
+    </div>
+  </div>
+  <div>
+    <img src="{{ static('tank/img/game_over.png') }}" class="game-over" />
+    <img src="{{ static('tank/img/win.png')}}" class="game-win" />
+    <canvas class="tank-canvas"></canvas>
+  </div>
+</div>
+{% endblock %}

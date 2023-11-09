@@ -1,0 +1,127 @@
+.game {
+  margin-top: 40px;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.tank-canvas {
+  width: 600px;
+  height: 600px;
+  background-color: var(--color7);
+}
+
+.game-over {
+  display: none;
+  position: fixed;
+}
+
+.game-win {
+  display: none;
+  position: fixed;
+}
+
+.border-info {
+  width: 300px;
+  text-align: left;
+  color: var(--color9);
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.span-info {
+  font-family: "font4", cursive;
+  font-size: 32px;
+}
+
+.span-data {
+  font-family: "roboto";
+  font-size: 34px;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.level-info {
+  font-family: "hand";
+  font-size: 28px;
+  color: var(--color6);
+}
+
+.information {
+  color: var(--color_black);
+}
+
+.button-85 {
+  width: 100px;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: var(--color9);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-85:hover {
+  color: var(--color6);
+}
+
+.button-85:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00c8,
+    #ff0000
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing-button-85 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.button-85:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
