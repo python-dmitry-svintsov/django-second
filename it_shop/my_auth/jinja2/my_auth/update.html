@@ -1,0 +1,77 @@
+{% extends 'shop/index.html' %} {% block title %} log_in {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('my_auth/css/profile.css') }}" />
+<link rel="stylesheet" href="{{ static('my_auth/css/update.css') }}" />
+<link rel="stylesheet" href="{{ static('my_auth/css/user_form.css') }}" />
+{% endblock %} {% block main %}
+<div class="main-info">
+  {% if profile.foto %}
+    <img class="profile-foto" src="/media/{{profile.foto}}" alt="user_photo" />
+  {% else %}
+  <img src="{{ static('my_auth/img/user.png') }}" class="profile-foto" alt="" />
+  {% endif %}
+  <h2>Username: &nbsp {{ profile.username }}</h2>
+</div>
+<form method="POST" class="user-form" enctype="multipart/form-data" id='form'>
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+    <input
+    type="text"
+    name="username"
+    placeholder="username"
+    class="input-elem"
+    id="username"
+    value="{{ profile.username }}"
+  />
+  <input
+    type="text"
+    name="first_name"
+    placeholder="имя пользователя"
+    class="input-elem"
+    id="first_name"
+    value="{{ profile.first_name }}"
+  />
+  <input
+    type="text"
+    name="last_name"
+    placeholder="фамилия пользователя"
+    class="input-elem"
+    id="last_name"
+    value="{{ profile.last_name }}"
+  />
+  <input
+    type="password"
+    name="password"
+    placeholder="new password"
+    class="input-elem"
+    id="password"
+    value="{{ profile.password }}"
+  />
+  <input
+    type="text"
+    name="city"
+    placeholder="new city"
+    class="input-elem"
+    id="city"
+    value="{{ profile.city }}"
+  />
+  <div>
+      <input id="sex_profile_id" type="text" class="hidden" value="{{ profile.sex.id }}">
+      {% for radio in sex %}
+      <label for="{{ radio.id }}">
+          <span class="radio"><input class="sex_item" id="{{ radio.id }}" name="sex" value="{{ radio.id }}" type="radio" required>{{ radio }}</span>
+      </label>
+      {% endfor %}
+  </div>
+    <div class="image-upload">
+        <input id="image" name="foto" type="file" placeholder="Image" />
+    </div>
+  <div class="block-btn">
+    <button class="btn-red" style="vertical-align: middle" type="submit" id="button">
+      <span>UPDATE </span>
+    </button>
+  </div>
+  <div id="loader" class="hidden">Отправляем...</div>
+</form>
+<a class="hidden" id="redirect_url" href="{{ profile.get_absolute_url() }}"></a>
+<script src="{{ static('my_auth/js/update.js') }}"></script>
+{% endblock %}

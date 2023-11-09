@@ -1,0 +1,59 @@
+{% extends 'shop/index.html' %} {% block title %} Order-{{ order.id }} {%
+endblock %} {% block style %}
+<link rel="stylesheet" href="{{ static('orders/css/detail.css')}}" />
+{% endblock %} {% block main %}
+<section class="order-detail-header">
+  <h1>Детали заказа № {{ order.id }}</h1>
+  <div class="header-info">
+    <span class="header-data-1">дата казаза:</span>
+    <span class="header-data-2">
+      создан: {{ order.created.strftime('%Y-%m-%d')}} в:
+      {{order.created.strftime('%H-%M')}}
+    </span>
+  </div>
+</section>
+<table class="order-table">
+  <tr>
+    <td class="table-headers">user:</td>
+    <td class="table-info">
+      <a href="{{ url('my_auth:profile', slug=order.user.slug) }}"
+        >{{ order.user.username }}</a
+      >
+    </td>
+  </tr>
+  <tr>
+    <td class="table-headers">имя:</td>
+    <td class="table-info">{{ order.first_name }}</td>
+  </tr>
+  <tr>
+    <td class="table-headers">фамилия:</td>
+    <td class="table-info">{{ order.last_name }}</td>
+  </tr>
+  <tr>
+    <td class="table-headers">email:</td>
+    <td class="table-info">{{ order.email }}</td>
+  </tr>
+  <tr>
+    <td class="table-headers">город:</td>
+    <td class="table-info">{{ order.city }}</td>
+  </tr>
+  <tr>
+    <td class="table-headers">почтовый код:</td>
+    <td class="table-info">{{ order.postal_code }}</td>
+  </tr>
+  {% if order.coupon %}
+  <tr>
+    <td class="table-headers">купон:</td>
+    <td class="table-info">{{ order.coupon.code }}</td>
+  </tr>
+  <tr>
+    <td class="table-headers">скидка:</td>
+    <td class="table-info">{{ order.discount }}</td>
+  </tr>
+  {% endif %}
+  <tr>
+    <td class="table-headers">общая цена заказа:</td>
+    <td class="table-info">{{ order.get_total_cost() }}</td>
+  </tr>
+</table>
+{% endblock %}

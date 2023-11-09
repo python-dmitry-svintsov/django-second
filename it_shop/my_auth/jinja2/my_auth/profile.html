@@ -1,0 +1,49 @@
+{% extends 'shop/index.html' %} {% block title %} log_in {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('my_auth/css/profile.css') }}" />
+{% endblock %} {% block main %}
+<div class="profile-root">
+  <div class="info-item">
+    {% if profile.photo %}
+    <img class="profile-foto" src="/media/{{profile.photo}}" alt="user_photo" />
+    {% else %}
+    <img
+      src="{{ static('my_auth/img/user.png') }}"
+      class="profile-foto"
+      alt=""
+    />
+    {% endif %}
+    <h2 class="font-3 info-header">Username: {{ profile.username }}</h2>
+  </div>
+  <div class="user-info">
+    <h1 class="font-4 info-header">USER &nbsp INFO :</h1>
+    <div class="user-info-block">
+      <div class="string-info">
+        <span class="info-title">Имя пользователя: &nbsp</span>
+        <span class="info-date">{{ profile.first_name }}</span>
+      </div>
+      <div class="string-info">
+        <span class="info-title">Фамилия пользователя: &nbsp</span>
+        <span class="info-date">{{ profile.last_name }}</span>
+      </div>
+      <div class="string-info">
+        <span class="info-title">адрес эл. почты: &nbsp</span>
+        <span class="info-date">{{ profile.email }}</span>
+      </div>
+      <div class="string-info">
+        <span class="info-title">город: &nbsp</span>
+        <span class="info-date">{{ profile.city }}</span>
+      </div>
+      <div class="string-info">
+        <span class="info-title">Пол пользователя: &nbsp</span>
+        <span class="info-date">{{ profile.sex }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="block-btn">
+    <form method="GET" action="{{ profile.get_absolute_url() }}update">
+      <button type="submit" class="btn-profile">UPDATE &nbsp INFO</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

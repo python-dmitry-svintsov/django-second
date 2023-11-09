@@ -1,0 +1,59 @@
+.header-list {
+  margin-top: 40px;
+  font-size: 28px;
+  color: var(--color5);
+  font-family: "grafyty";
+}
+
+.order-table {
+  background-color: var(--color1);
+  max-width: 90vw;
+  overflow: scroll;
+  border-top: solid 3px var(--color_black);
+  border-bottom: solid 3px var(--color_black);
+  /* border-right: solid 3px var(--color_black); */
+  border-left: solid 3px var(--color_black);
+  padding: 0;
+}
+
+.order-table tr {
+  border: solid 3px var(--color_black);
+  height: 30px;
+}
+
+.order-table tr > th {
+  font-size: 22px;
+  font-family: "halloween";
+  color: var(--color7);
+  border-bottom: solid 3px var(--color_black);
+  border-right: solid 3px var(--color_black);
+  padding: 0;
+  height: 30px;
+  padding: 10px;
+}
+
+.order-table tr > td {
+  font-size: 18px;
+  font-family: "font3";
+  color: var(--color9);
+  text-align: center;
+  margin: 0px, 5px;
+  border-bottom: solid 1px var(--color_black);
+  border-right: solid 1px var(--color_black);
+}
+
+.order-table tr > td > a {
+  color: var(--color4);
+  text-decoration: none;
+  font-size: 22px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3),
+    2px -2px 5px rgba(0, 0, 0, 0.3), -2px 2px 5px rgba(0, 0, 0, 0.3);
+  color: var(--color6);
+  transition-duration: 0.5s;
+}
+
+.order-table tr > td > a:hover {
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5), -2px -2px 2px rgba(0, 0, 0, 0.5),
+    2px -2px 2px rgba(0, 0, 0, 0.5), -2px 2px 2px rgba(0, 0, 0, 0.5);
+  color: var(--color5);
+}

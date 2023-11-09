@@ -1,0 +1,73 @@
+{% extends 'shop/index.html' %} {% block title %} shopping cart {% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{ static('orders/css/create.css')}}" />
+{% endblock %} {% block main %}
+<h1 class="order-header">Оформление заказа:</h1>
+<div class="order-info">
+  <h3>Ваш заказ:</h3>
+  <ul class="order-list">
+    {% for item in cart %}
+    <li class="prd-conteiner">
+      <img class="prd-icon" src="/media/{{ item.product.icon }}" alt="" />
+      <span>{{ item.quantity }} x &nbsp</span>{{ item.product.title }}
+      <span>&nbsp- {{ item.total_price }} y.e.</span>
+    </li>
+    {% endfor %} {% if cart.coupon %}
+    <li class="prd-conteiner">
+      <span>К вашему заказу применён купон: &nbsp</span>
+      "{{ cart.coupon.code }}" ({{ cart.coupon.discount }}% off)&nbsp
+      <span>Итого скидка: &nbsp</span>
+      <span>- ${{ cart.get_discount() }}</span>
+    </li>
+    {% endif %}
+  </ul>
+  <p>Общая стоимость заказа: ${{ cart.get_total_price_after_discount() }}</p>
+</div>
+{% set current_user = request.user %}
+<form method="post" class="order-form">
+  <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+  <input
+    class="input-elem"
+    type="text"
+    name="first_name"
+    value="{{ current_user.first_name }}"
+    placeholder="first_name"
+  />
+  <input
+    class="input-elem"
+    type="text"
+    name="last_name"
+    value="{{ current_user.last_name }}"
+    placeholder="last_name"
+  />
+  <input
+    class="input-elem"
+    type="text"
+    name="email"
+    value="{{ current_user.email }}"
+    placeholder="email"
+  />
+  <input
+    class="input-elem"
+    type="text"
+    name="address"
+    value=""
+    placeholder="address"
+  />
+  <input
+    class="input-elem"
+    type="text"
+    name="postal_code"
+    value=""
+    placeholder="postal_code"
+  />
+  <input
+    class="input-elem"
+    type="text"
+    name="city"
+    value="{{ current_user.city }}"
+    placeholder="city"
+  />
+  <button class="button-7" type="submit">Оформить!</button>
+</form>
+{% endblock %}

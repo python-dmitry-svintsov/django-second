@@ -1,0 +1,118 @@
+.order-header {
+  margin-top: 50px;
+  font-size: 32px;
+  font-family: "grafyty";
+  color: var(--color8);
+}
+
+.order-form {
+  margin-top: 25px 0;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  flex-direction: column;
+  background-color: rgba(92, 10, 85, 0.4);
+  padding: 20px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 40px;
+}
+
+.order-info {
+  background-color: rgba(61, 14, 57, 0.3);
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.order-info h3 {
+  font-size: 26px;
+  font-family: "square";
+  margin: 10px 10px;
+  color: var(--orange);
+}
+
+.order-info p {
+  font-size: 20px;
+  font-family: "font2";
+  color: var(--color7);
+}
+
+.order-list {
+  list-style: none;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.prd-icon {
+  max-width: 40px;
+  max-height: 60px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3), -2px -2px 5px rgba(0, 0, 0, 0.3),
+    2px -2px 5px rgba(0, 0, 0, 0.3), -2px 2px 5px rgba(0, 0, 0, 0.3);
+  margin: 20px 50px;
+}
+
+.prd-conteiner {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-family: "roboto";
+  color: var(--color9);
+}
+
+.prd-conteiner span {
+  color: var(--color5);
+  font-weight: bolder;
+  font-size: 19px;
+}
+
+.input-elem {
+  width: 200px;
+  font-size: 20px;
+  font-family: "roboto";
+  color: var(--color_black);
+  margin: 10px;
+}
+
+.button-7 {
+  background-color: #0095ff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  box-shadow: rgba(255, 255, 255, 0.4) 0 1px 0 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-family: "roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.15385;
+  margin: 30px;
+  outline: none;
+  padding: 8px 5px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  white-space: nowrap;
+}
+
+.button-7:hover,
+.button-7:focus {
+  background-color: #07c;
+}
+
+.button-7:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, 0.15);
+}
+
+.button-7:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}

@@ -1,0 +1,18 @@
+.main-info {
+  text-align: center;
+  color: var(--color8);
+  font-family: "font4";
+}
+
+.profile-foto {
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.user-form {
+  text-align: center;
+}
+
+.form-input {
+  color: aqua;
+}

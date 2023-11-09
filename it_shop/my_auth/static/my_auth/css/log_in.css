@@ -1,0 +1,60 @@
+.auth-root {
+  width: 100vw;
+  height: 100vh;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-container {
+  margin: 10px 0;
+  padding: 10px;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+  background-color: var(--color1_a);
+  box-shadow: 10px 8px 5px rgba(0, 0, 0, 0.6);
+}
+
+.auth-container h2 {
+  font-family: "halloween";
+  margin: 1px;
+  padding: 1px;
+}
+
+.auth-container h6 {
+  font-size: 18px;
+  margin: 1px;
+}
+
+.text-container {
+  min-height: 24px;
+  display: block;
+}
+
+.authenticated-form {
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-flex;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2px;
+}
+
+.authenticated-form input {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.authenticated-form button {
+  margin: 10px;
+}

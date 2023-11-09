@@ -1,0 +1,24 @@
+{% extends 'shop/index.html' %} {% block title %} log_in {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('my_auth/css/log_in.css') }}" />
+{% endblock %} {% block main %}
+<section class="auth-root">
+  <div class="auth-container">
+    <h2>Вход</h2>
+    <div>
+      <form method="POST" class="authenticated-form">
+        <input
+          type="hidden"
+          name="csrfmiddlewaretoken"
+          value="{{ csrf_token }}"
+        />
+        {{ form.username }} {{ form.password }}
+        <button type="submit" class="btn-accept">Вход</button>
+      </form>
+      <form action="{{ url('my_auth:register') }}" method="GET">
+        <button class="btn-accept">Регистрация</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}

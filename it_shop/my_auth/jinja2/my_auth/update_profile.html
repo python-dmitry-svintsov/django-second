@@ -1,0 +1,116 @@
+{% extends 'shop/index.html' %} {% block title %} log_in {% endblock %} {% block
+style %}
+<link rel="stylesheet" href="{{ static('my_auth/css/profile.css') }}" />
+<link rel="stylesheet" href="{{ static('my_auth/css/update.css') }}" />
+<link rel="stylesheet" href="{{ static('my_auth/css/user_form.css') }}" />
+{% endblock %} {% block main %}
+<div class="profile-root">
+  <h3 class="sign-in">{{ ('Обновление') }}</h3>
+  <form method="POST" class="user-form" enctype="multipart/form-data">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}" />
+    <table>
+      <tr>
+        <td class="annotation-elem"><span>email: </span></td>
+        <td>
+          <input
+            type="email"
+            name="email"
+            placeholder="email"
+            class="input-elem"
+            id="email"
+            value="{{ profile.email }}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="annotation-elem"><span>имя пользоователя: </span></td>
+        <td>
+          <input
+            type="text"
+            name="first_name"
+            placeholder="first_name"
+            class="input-elem"
+            id="first_name"
+            value="{{ profile.first_name }}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td><span class="annotation-elem">фамилия пользователя: </span></td>
+        <td>
+          <input
+            type="text"
+            name="last_name"
+            placeholder="last_name"
+            class="input-elem"
+            id="last_name"
+            value="{{ profile.last_name }}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="annotation-elem"><span>отчество пользователя: </span></td>
+        <td>
+          <input
+            type="text"
+            name="surname"
+            placeholder="surname"
+            class="input-elem"
+            id="surname"
+            value="{{ profile.surname }}"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td class="annotation-elem"><span>город пользователя: </span></td>
+        <td>
+          <input
+            type="text"
+            name="city"
+            placeholder="city"
+            class="input-elem"
+            id="city"
+            value="{{ profile.city }}"
+          />
+        </td>
+      </tr>
+    </table>
+
+    <fieldset class="field_set">
+      <span class="legend">Пол :</span>
+      {% for radio in sex %}
+      <label for="sex{{ loop.index }}">
+        <span class="radio">{{ radio.male }}</span>
+        <input id="sex{{ loop.index }}" name="sex" type="radio" value="{{
+        loop.index }}" {% if profile.sex_id == radio.id %} checked = True {%
+        else %} False {% endif %}>
+      </label>
+      {% endfor %}
+    </fieldset>
+    <div>
+      <span class="alert-message-orange">Текущее изображние: </span>
+      <span class="alert-message-blue">
+        {% if profile.photo %} {{ profile.photo }} {% else %} not found {% endif
+        %}
+      </span>
+      <div>
+        <span class="alert-message">Удалить изобржение:</span>
+        <input type="checkbox" name="delete_photo" />
+      </div>
+    </div>
+    <input
+      class="image-upload"
+      id="image"
+      name="photo"
+      type="file"
+      placeholder="Image"
+    />
+    <div class="block-btn">
+      <button class="btn-blue" style="vertical-align: middle" type="submit">
+        <span class="font-4" style="font-size=22px">update info </span>
+      </button>
+    </div>
+  </form>
+</div>
+{% endblock %}
